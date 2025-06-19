@@ -8,10 +8,11 @@ export default defineConfig({
     react(),
     federation({
       name: 'hostApp',
+      filename: "remoteEntry.js",
       remotes: {
         remoteApp: 'http://localhost:3001/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
   resolve: {
@@ -23,6 +24,9 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    modulePreload: false,
     target: 'esnext',
-  },
+    minify: false,
+    cssCodeSplit: false
+  }
 });

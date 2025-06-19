@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview --port 3000",
+    "serve": "vite preview --port 3000 --strictPort"
   },
   "dependencies": {
     "@originjs/vite-plugin-federation": "^1.3.9",
