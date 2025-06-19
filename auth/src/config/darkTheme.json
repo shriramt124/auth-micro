@@ -1,0 +1,119 @@
+{
+  "colors": {
+    "primary": {
+      "main": "#6366F1",
+      "light": "#818CF8",
+      "dark": "#4F46E5",
+      "hover": "#4F46E5",
+      "contrastText": "#FFFFFF"
+    },
+    "secondary": {
+      "main": "#10B981",
+      "light": "#34D399",
+      "dark": "#059669",
+      "hover": "#059669",
+      "contrastText": "#FFFFFF"
+    },
+    "background": {
+      "default": "#111827",
+      "paper": "#1F2937",
+      "card": "#1F2937",
+      "input": "#374151"
+    },
+    "text": {
+      "primary": "#F9FAFB",
+      "secondary": "#D1D5DB",
+      "disabled": "#6B7280",
+      "hint": "#9CA3AF"
+    },
+    "error": {
+      "main": "#EF4444",
+      "light": "#FCA5A5",
+      "dark": "#DC2626",
+      "contrastText": "#FFFFFF"
+    },
+    "warning": {
+      "main": "#F59E0B",
+      "light": "#FCD34D",
+      "dark": "#D97706",
+      "contrastText": "#FFFFFF"
+    },
+    "info": {
+      "main": "#3B82F6",
+      "light": "#93C5FD",
+      "dark": "#2563EB",
+      "contrastText": "#FFFFFF"
+    },
+    "success": {
+      "main": "#10B981",
+      "light": "#34D399",
+      "dark": "#059669",
+      "contrastText": "#FFFFFF"
+    },
+    "divider": "#374151",
+    "border": {
+      "main": "#374151",
+      "focus": "#6366F1",
+      "error": "#EF4444"
+    },
+    "action": {
+      "active": "#D1D5DB",
+      "hover": "#374151",
+      "selected": "#4B5563",
+      "disabled": "#6B7280",
+      "disabledBackground": "#374151"
+    },
+    "components": {
+      "button": {
+        "primary": {
+          "background": "#6366F1",
+          "text": "#FFFFFF",
+          "hover": "#4F46E5",
+          "disabled": "#6B7280"
+        },
+        "secondary": {
+          "background": "#10B981",
+          "text": "#FFFFFF",
+          "hover": "#059669",
+          "disabled": "#6B7280"
+        },
+        "outline": {
+          "border": "#6366F1",
+          "text": "#6366F1",
+          "hover": "#312E81",
+          "disabled": "#6B7280"
+        },
+        "text": {
+          "color": "#6366F1",
+          "hover": "#312E81",
+          "disabled": "#6B7280"
+        }
+      },
+      "input": {
+        "background": "#374151",
+        "text": "#F9FAFB",
+        "placeholder": "#9CA3AF",
+        "border": "#4B5563",
+        "focus": "#6366F1",
+        "error": "#EF4444",
+        "disabled": "#1F2937"
+      },
+      "checkbox": {
+        "border": "#4B5563",
+        "background": "#374151",
+        "checked": "#6366F1",
+        "hover": "#312E81",
+        "disabled": "#1F2937"
+      },
+      "card": {
+        "background": "#1F2937",
+        "border": "#374151"
+      },
+      "link": {
+        "primary": "#818CF8",
+        "hover": "#6366F1",
+        "visited": "#6D28D9"
+      }
+    }
+  }
+}
