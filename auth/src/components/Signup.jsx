@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext.jsx';
+import { useTheme } from '../contexts/ThemeContext';
 
  
 const validationSchema = Yup.object().shape({
@@ -22,6 +23,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function Signup() {
+    const theme = useTheme();
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -42,13 +44,13 @@ signup(values.name, values.email, values.password);
     });
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+        <div className="min-h-screen flex items-center justify-center p-4" style={{ background: theme.background.default }}>
+            <div className="w-full max-w-md rounded-2xl shadow-xl p-8" style={{ background: theme.components.card.background }}>
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">Create Your Account</h1>
-                    <p className="text-gray-500">
+                    <h1 className="text-3xl font-bold mb-2" style={{ color: theme.text.primary }}>Create Your Account</h1>
+                    <p style={{ color: theme.text.secondary }}>
                         Already have an account?{' '}
-                        <Link  to="/login" className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">
+                        <Link to="/login" className="font-medium transition-colors" style={{ color: theme.components.link.primary, '&:hover': { color: theme.components.link.hover } }}>
                             Sign in
                         </Link>
                     </p>
@@ -57,7 +59,7 @@ signup(values.name, values.email, values.password);
                 <form onSubmit={formik.handleSubmit} className="space-y-6">
                     {/* Name Input */}
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="name" className="block text-sm font-medium mb-1" style={{ color: theme.text.primary }}>
                             Full Name
                         </label>
                         <input
@@ -67,17 +69,23 @@ signup(values.name, values.email, values.password);
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.name}
-                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none text-gray-700"
+                            className="w-full px-4 py-2.5 rounded-lg border transition-all outline-none"
+                            style={{
+                                borderColor: formik.touched.name && formik.errors.name ? theme.components.input.error : theme.components.input.border,
+                                color: theme.components.input.text,
+                                background: theme.components.input.background,
+                                '&:focus': { borderColor: theme.components.input.focus }
+                            }}
                             placeholder="John Doe"
                         />
                         {formik.touched.name && formik.errors.name && (
-                            <p className="text-red-500 text-sm mt-1">{formik.errors.name}</p>
+                            <p className="text-sm mt-1" style={{ color: theme.error.main }}>{formik.errors.name}</p>
                         )}
                     </div>
 
                     {/* Email Input */}
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="email" className="block text-sm font-medium mb-1" style={{ color: theme.text.primary }}>
                             Email Address
                         </label>
                         <input
@@ -87,17 +95,23 @@ signup(values.name, values.email, values.password);
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.email}
-                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none text-gray-700"
+                            className="w-full px-4 py-2.5 rounded-lg border transition-all outline-none"
+                            style={{
+                                borderColor: formik.touched.email && formik.errors.email ? theme.components.input.error : theme.components.input.border,
+                                color: theme.components.input.text,
+                                background: theme.components.input.background,
+                                '&:focus': { borderColor: theme.components.input.focus }
+                            }}
                             placeholder="john@example.com"
                         />
                         {formik.touched.email && formik.errors.email && (
-                            <p className="text-red-500 text-sm mt-1">{formik.errors.email}</p>
+                            <p className="text-sm mt-1" style={{ color: theme.error.main }}>{formik.errors.email}</p>
                         )}
                     </div>
 
                     {/* Password Input */}
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="password" className="block text-sm font-medium mb-1" style={{ color: theme.text.primary }}>
                             Password
                         </label>
                         <input
@@ -107,17 +121,23 @@ signup(values.name, values.email, values.password);
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.password}
-                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none text-gray-700"
+                            className="w-full px-4 py-2.5 rounded-lg border transition-all outline-none"
+                            style={{
+                                borderColor: formik.touched.password && formik.errors.password ? theme.components.input.error : theme.components.input.border,
+                                color: theme.components.input.text,
+                                background: theme.components.input.background,
+                                '&:focus': { borderColor: theme.components.input.focus }
+                            }}
                             placeholder="••••••••"
                         />
                         {formik.touched.password && formik.errors.password && (
-                            <p className="text-red-500 text-sm mt-1">{formik.errors.password}</p>
+                            <p className="text-sm mt-1" style={{ color: theme.error.main }}>{formik.errors.password}</p>
                         )}
                     </div>
 
                     {/* Confirm Password Input */}
                     <div>
-                        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="confirmPassword" className="block text-sm font-medium mb-1" style={{ color: theme.text.primary }}>
                             Confirm Password
                         </label>
                         <input
@@ -127,11 +147,17 @@ signup(values.name, values.email, values.password);
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.confirmPassword}
-                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none text-gray-700"
+                            className="w-full px-4 py-2.5 rounded-lg border transition-all outline-none"
+                            style={{
+                                borderColor: formik.touched.confirmPassword && formik.errors.confirmPassword ? theme.components.input.error : theme.components.input.border,
+                                color: theme.components.input.text,
+                                background: theme.components.input.background,
+                                '&:focus': { borderColor: theme.components.input.focus }
+                            }}
                             placeholder="••••••••"
                         />
                         {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-                            <p className="text-red-500 text-sm mt-1">{formik.errors.confirmPassword}</p>
+                            <p className="text-sm mt-1" style={{ color: theme.error.main }}>{formik.errors.confirmPassword}</p>
                         )}
                     </div>
 
@@ -144,27 +170,36 @@ signup(values.name, values.email, values.password);
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             checked={formik.values.agree}
-                            className="mt-1 w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                            className="mt-1 w-4 h-4 rounded"
+                            style={{
+                                borderColor: theme.components.checkbox.border,
+                                backgroundColor: formik.values.agree ? theme.components.checkbox.checked : theme.components.checkbox.background
+                            }}
                         />
-                        <label htmlFor="agree" className="text-sm text-gray-600">
+                        <label htmlFor="agree" className="text-sm" style={{ color: theme.text.secondary }}>
                             I agree with{' '}
-                            <a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium">
+                            <Link to="/terms" className="font-medium transition-colors" style={{ color: theme.components.link.primary, '&:hover': { color: theme.components.link.hover } }}>
                                 Terms
-                            </a>{' '}
+                            </Link>{' '}
                             and{' '}
-                            <a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium">
+                            <Link to="/privacy" className="font-medium transition-colors" style={{ color: theme.components.link.primary, '&:hover': { color: theme.components.link.hover } }}>
                                 Privacy Policy
-                            </a>
+                            </Link>
                         </label>
                     </div>
                     {formik.touched.agree && formik.errors.agree && (
-                        <p className="text-red-500 text-sm -mt-4">{formik.errors.agree}</p>
+                        <p className="text-sm -mt-4" style={{ color: theme.error.main }}>{formik.errors.agree}</p>
                     )}
 
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm hover:shadow-md"
+                        className="w-full font-semibold py-3 rounded-lg transition-all shadow-sm hover:shadow-md"
+                        style={{
+                            backgroundColor: theme.components.button.primary.background,
+                            color: theme.components.button.primary.text,
+                            '&:hover': { backgroundColor: theme.components.button.primary.hover }
+                        }}
                     >
                         Create Free Account
                     </button>
