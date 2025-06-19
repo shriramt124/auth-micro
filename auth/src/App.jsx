@@ -6,16 +6,21 @@ import Login from './components/Login'
 import ForgotPassword from './components/FogotPassword'
 import ResetPassword from './components/ResetPassword'
 import OtpLogin from './components/OtpLogin'
+import { ThemeToggle } from './components/ThemeToggle'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Signup />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path='/otp' element={<OtpLogin />} />
-    </Routes>
+    <>
+      <ThemeToggle />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path='/otp' element={<OtpLogin />} />
+      </Routes>
+    </>
   )
 }
 
