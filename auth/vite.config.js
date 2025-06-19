@@ -11,9 +11,11 @@ export default defineConfig({
       name: 'remoteApp',
       filename: 'remoteEntry.js',
       exposes: {
-      
+        "./Login": "./src/components/Login.jsx",
+        "./Signup": "./src/components/Signup.jsx",
+          "./OtpLogin": "./src/components/OtpLogin.jsx",
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
   server: {
