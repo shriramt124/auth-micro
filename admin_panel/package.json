@@ -4,15 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3002",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview --port 3002",
+    "serve": "vite preview --port 3002 --strictPort"
   },
   "dependencies": {
+    "@originjs/vite-plugin-federation": "^1.4.1",
     "@tailwindcss/vite": "^4.1.10",
+    "lucide-react": "^0.263.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2",
     "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
